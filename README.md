@@ -1,3 +1,7 @@
+### Cinema
+
+Cinema is a video sharing platform I built for my final year project. This is the API, built with Rust, Actix web and PostgreSQL it includes all the endpoints used by the frontend.
+
 ### Development setup
 #### Requirements
 - Docker
