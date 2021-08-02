@@ -1,0 +1,42 @@
+version: "3"
+services:
+  cinema_db:
+    container_name: cinema_db
+    image: postgres
+    restart: always
+    volumes:
+      - ./storage/testdb:/var/lib/postgresql/data
+    ports:
+      - 4000:5432
+    environment: 
+      POSTGRES_USER: cinema_db
+      POSTGRES_PASSWORD: cinema_db
+      POSTGRES_DB: cinema_db
+
+  strapi:
+    image: strapi/strapi
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: strapi
+      DATABASE_HOST: strapi_db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+    volumes:
+      - ./app:/srv/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - strapi_db
+
+  strapi_db:
+    image: postgres
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 4343:5432
+    

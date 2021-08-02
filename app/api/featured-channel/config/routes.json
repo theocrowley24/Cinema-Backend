@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/featured-channel",
+      "handler": "featured-channel.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/featured-channel",
+      "handler": "featured-channel.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/featured-channel",
+      "handler": "featured-channel.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
